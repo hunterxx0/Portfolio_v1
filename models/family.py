@@ -29,7 +29,6 @@ class Family(BaseModel, Base):
     cause_of_death = Column(String(128), nullable=False)
     sponsor_name = Column(String(20), nullable=True)
     family_status = Column(String(30), nullable=False)
-
     orphans = relationship("Orphan",
                            backref="family",
                            cascade="all, delete, delete-orphan")
