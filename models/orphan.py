@@ -19,7 +19,8 @@ class Orphan(BaseModel, Base):
     health_status = Column(String(128), nullable=False)
     Hobbies = Column(String(128), nullable=False)
     education_status = Column(String(128), nullable=False)
-    if education_status == "currently studying":
+    # pupil / jobless / employee / etc
+    if education_status == "pupil":
         orphan_education = relationship("Orphan_education",
                                         backref="orphans",
                                         cascade="all, delete, delete-orphan")

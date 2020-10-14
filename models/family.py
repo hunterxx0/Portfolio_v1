@@ -7,6 +7,18 @@ import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 
+family_subsidy = Table('family_subsidy', Base.metadata,
+                       Column('family_id', String(60),
+                              ForeignKey('families.id', onupdate='CASCADE',
+                                         ondelete='CASCADE'),
+                              primary_key=True),
+                       Column('subsidy_id', String(60),
+                              ForeignKey('subsidies.id', onupdate='CASCADE',
+                                         ondelete='CASCADE'),
+                              primary_key=True),
+                       Column(int, nullable=False)
+                       )
+
 
 class Family(BaseModel, Base):
     """Representation of family """
@@ -32,6 +44,9 @@ class Family(BaseModel, Base):
     orphans = relationship("Orphan",
                            backref="family",
                            cascade="all, delete, delete-orphan")
+    subsidies = relationship("Subsidy",
+                             secondary=family_subsidy,
+                             viewonly=False)
 
     def __init__(self, *args, **kwargs):
         """initializes family"""

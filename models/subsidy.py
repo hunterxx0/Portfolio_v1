@@ -12,16 +12,18 @@ class Subsidy(BaseModel, Base):
 
     __tablename__ = 'subsidies'
     sub_type = Column(String(30), nullable=False)
-    tittle = Column(String(30), nullable=False)
+    title = Column(String(30), nullable=False)
     description = Column(String(128), nullable=False)
     price_unit = Column(String(20), nullable=False)
     gender = Column(String(20), nullable=False)
     age_min = Column(String(10), nullable=False)
     age_max = Column(String(10), nullable=False)
     status = Column(String(128), nullable=False)
-    fam_sub = relationship("Family_sub",
-                           backref="subsidy",
-                           cascade="all, delete, delete-orphan")
+    amount = Column(int, nullable=False)
+    unit = Column(String(20), nullable=True)
+    family_subsidy = relationship("Family_subsidy",
+                                  backref="subsidy",
+                                  cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initializes city"""

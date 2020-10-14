@@ -14,8 +14,10 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-classes = {"Family": Family, "Orphan": Orphan,
-           "Subsidy": Subsidy, "Family_subsidy": Family_subsidy, "Orphan_education": Orphan_education}
+classes = {"Family": Family,
+           "Orphan": Orphan,
+           "Subsidy": Subsidy,
+           "Orphan_education": Orphan_education}
 
 
 class DBStorage:
