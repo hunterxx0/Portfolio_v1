@@ -16,7 +16,7 @@ family_subsidy = Table('family_subsidy', Base.metadata,
                               ForeignKey('subsidies.id', onupdate='CASCADE',
                                          ondelete='CASCADE'),
                               primary_key=True),
-                       Column("amount", Integer, nullable=False)
+                       Column("amount", Integer, nullable=True)
                        )
 
 
