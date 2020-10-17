@@ -4,7 +4,7 @@ import models
 from models.base_model import BaseModel, Base
 from models.orphan import Orphan
 import sqlalchemy
-from sqlalchemy import Column, String, ForeignKey, DateTime
+from sqlalchemy import Column, String, ForeignKey, DateTime, Table, Integer
 from sqlalchemy.orm import relationship
 
 family_subsidy = Table('family_subsidy', Base.metadata,
@@ -16,7 +16,7 @@ family_subsidy = Table('family_subsidy', Base.metadata,
                               ForeignKey('subsidies.id', onupdate='CASCADE',
                                          ondelete='CASCADE'),
                               primary_key=True),
-                       Column(int, nullable=False)
+                       Column("amount", Integer, nullable=False)
                        )
 
 
@@ -24,7 +24,7 @@ class Family(BaseModel, Base):
     """Representation of family """
 
     __tablename__ = 'families'
-    cin = Column(String(20), nullable=False)
+    cin = Column(String(20), nullable=False, unique=True)
     first_name = Column(String(20), nullable=False)
     last_name = Column(String(20), nullable=False)
     sex = Column(String(10), nullable=False)
@@ -33,7 +33,7 @@ class Family(BaseModel, Base):
     phone = Column(String(30), nullable=False)
     health_ensurance = Column(String(20), nullable=False)
     job = Column(String(20), nullable=False)
-    income = Column(int, nullable=False)
+    income = Column(Integer, nullable=False)
     home_status = Column(String(20), nullable=False)
     home_owner = Column(String(20), nullable=False)
     health_status = Column(String(20), nullable=False)

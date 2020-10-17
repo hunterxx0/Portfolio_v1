@@ -10,7 +10,7 @@ from sqlalchemy.orm import relationship
 class Orphan(BaseModel, Base):
     """Representation of orphan """
 
-    __tablename__ = 'cities'
+    __tablename__ = 'orphans'
     family_id = Column(String(60), ForeignKey('families.id'), nullable=False)
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)

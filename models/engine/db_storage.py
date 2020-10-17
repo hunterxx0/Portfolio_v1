@@ -8,7 +8,6 @@ from models.base_model import BaseModel, Base
 from models.family import Family
 from models.orphan import Orphan
 from models.subsidy import Subsidy
-from models.family_subsidy import Family_subsidy
 from models.orphan_education import Orphan_education
 import sqlalchemy
 from sqlalchemy import create_engine
@@ -30,7 +29,7 @@ class DBStorage:
         HBNB_MYSQL_USER = 'mvp_dev'
         HBNB_MYSQL_PWD = 'mvp_dev_pwd'
         HBNB_MYSQL_HOST = 'localhost'
-        HBNB_MYSQL_DB = 'mvp_dev_dv'
+        HBNB_MYSQL_DB = 'mvp_dev_db'
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                       format(HBNB_MYSQL_USER,
                                              HBNB_MYSQL_PWD,

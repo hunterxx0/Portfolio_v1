@@ -3,7 +3,7 @@
 import models
 from models.base_model import BaseModel, Base
 import sqlalchemy
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey, Integer
 from sqlalchemy.orm import relationship
 
 
@@ -19,11 +19,8 @@ class Subsidy(BaseModel, Base):
     age_min = Column(String(10), nullable=False)
     age_max = Column(String(10), nullable=False)
     status = Column(String(128), nullable=False)
-    amount = Column(int, nullable=False)
+    amount = Column(Integer, nullable=False)
     unit = Column(String(20), nullable=True)
-    family_subsidy = relationship("Family_subsidy",
-                                  backref="subsidy",
-                                  cascade="all, delete, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """initializes city"""
