@@ -20,7 +20,7 @@ class Orphan_education(BaseModel, Base):
     updated = Column(Integer, nullable=True)
 
     def __init__(self, *args, **kwargs):
-        """initializes city"""
+        """initializes orphan_education"""
         super().__init__(*args, **kwargs)
 
     def success_year(self):

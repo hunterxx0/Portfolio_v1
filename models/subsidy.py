@@ -23,5 +23,5 @@ class Subsidy(BaseModel, Base):
     unit = Column(String(20), nullable=True)
 
     def __init__(self, *args, **kwargs):
-        """initializes city"""
+        """initializes subsidy"""
         super().__init__(*args, **kwargs)
